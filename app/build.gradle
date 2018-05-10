@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.ntt.ecl.webrtc.sample_p2p_videochat"
-        minSdkVersion 17
-        targetSdkVersion 25
+        minSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,19 +17,35 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile (name:'skyway',ext:'aar')
+    implementation(name: 'skyway', ext: 'aar')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //https://developer.android.com/things/training/first-device/create-studio-project.html
+    compileOnly 'com.google.android.things:androidthings:+'
+    //https://docs.splunk.com/Documentation/MintAndroidSDK/5.2.x/DevGuide/Requirementsandinstallation
+    implementation 'com.splunk:mint-android-sdk:5.2.2'
+    implementation 'com.splunk:mint-android-instrumentation-okhttp:5.2.2'
+    // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
+    implementation 'org.java-websocket:Java-WebSocket:+'
 }
 
 repositories{
+    repositories {
+        maven {
+            url uri('mint-plugin-repo-5.2.2')
+        }
+        google()
+        jcenter()
+    }
     flatDir{
         dirs 'libs'
     }
