@@ -123,6 +123,7 @@ public class MainActivity extends Activity {
                 InetSocketAddress address = new InetSocketAddress(InetAddress.getByName(MyAppProperties.getProperty("MyWebSocket.hostname")), Integer.parseInt(MyAppProperties.getProperty("MyWebSocket.port")));
                 MyWebSocketServer myWebSocketServer = new MyWebSocketServer(Integer.parseInt(MyAppProperties.getProperty("MyWebSocket.port")));
                 myWebSocketServer.start();
+                myWebSocketServer.setConnectionLostTimeout(10000);
                 MyDataActivity.setMyWebSocketServer(myWebSocketServer);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
@@ -205,7 +206,7 @@ public class MainActivity extends Activity {
 
                 }
             });
-            //MyDataActivity.getMyWebSocketClientManager().connect();
+            MyDataActivity.getMyWebSocketClient();
         }
 
         MyDataActivity.setMainActivity(this);

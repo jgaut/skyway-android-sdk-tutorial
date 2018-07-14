@@ -27,9 +27,9 @@ public class MyWebSocketServer extends WebSocketServer {
         super(new InetSocketAddress(port));
     }
 
-    public MyWebSocketServer(InetSocketAddress address) {
+    /*public MyWebSocketServer(InetSocketAddress address) {
         super(address);
-    }
+    }*/
 
 
     @Override

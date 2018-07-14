@@ -56,27 +56,13 @@ public class MyWebSocketClient extends WebSocketClient {
                         Log.d(TAG,"Lancement IHM!");
                         /*Lancement de l'IHM*/
                         Intent it = new Intent(context, MainActivity.class);
-                        /*it.setFlags(Intent.ACTION_SCREEN_ON);
-                        it.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
-                                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
-                                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
-                                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-
-                        //it.addFlags();*/
                         context.startActivity(it);
                     }
-                    //MyDataActivity.getMainActivity().getTextView().append("\n"+myMessage);
-                    /*NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MyDataActivity.getContext(), "Perso")
-                            .setSmallIcon(R.drawable.tile)
-                            .setContentTitle("Interphone")
-                            .setContentText(myMessage)
-                            .setPriority(NotificationCompat.PRIORITY_MAX)
-                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
-                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MyDataActivity.getContext());
-                    // notificationId is a unique int for each notification that you must define
-                    notificationManager.notify(new Double(Math.random()).intValue(), mBuilder.build());
-                */}
+                    if(MyDataActivity.getMainActivity()!=null){
+                        MyDataActivity.getMainActivity().getTextView().append("\n"+myMessage);
+                    }
+                }
             });
         }
 
