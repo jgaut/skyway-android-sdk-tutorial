@@ -6,6 +6,4 @@
 /captures
 .externalNativeBuild
 .idea
-/app\mint-plugin-repo-5.2.2/**
-app/mint-plugin-repo-5.2.2/com/splunk/mint-android-instrumentation-common/5.2.2/mint-android-instrumentation-common-5.2.2.jar
-*.jar
+/app/mint-plugin-repo-*
